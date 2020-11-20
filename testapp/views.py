@@ -17,3 +17,4 @@ class UserInfoViewSet(viewsets.ModelViewSet):
     serializer_class = UserInfoSerializer
 
 # modification from window
+# modification from ubuntu
