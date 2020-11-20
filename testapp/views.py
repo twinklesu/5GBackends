@@ -15,3 +15,5 @@ class SurveyViewSet(viewsets.ModelViewSet):
 class UserInfoViewSet(viewsets.ModelViewSet):
     queryset = UserInfo.objects.all()
     serializer_class = UserInfoSerializer
+
+# modification from window
