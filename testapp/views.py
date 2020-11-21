@@ -16,5 +16,7 @@ class UserInfoViewSet(viewsets.ModelViewSet):
     queryset = UserInfo.objects.all()
     serializer_class = UserInfoSerializer
 
-# modification from window
-# modification from ubuntu
+# order by practice
+class RecentPostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.order_by("reg_dt")[:5]
+    serializer_class = PostSerializer
