@@ -2,12 +2,12 @@ from django.db import models
 
 
 class Post(models.Model):
-    post_no = models.IntegerField(primary_key=True)
+    #post_no = models.IntegerField(primary_key=True)
+    post_no = models.AutoField(primary_key=True)
     post_title = models.CharField(max_length=128, blank=True, null=True)
     post_content = models.CharField(max_length=1028, blank=True, null=True)
     post_id = models.CharField(max_length=200, blank=True, null=True)
     reg_dt = models.DateTimeField(auto_now_add=True)
-    #reg_dt = models.DateTimeField(blank=True, null=True)
     mod_dt = models.DateTimeField(blank=True, null=True)
     post_image = models.TextField(blank=True, null=True)
     post_image_size = models.IntegerField(blank=True, null=True)
