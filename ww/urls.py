@@ -33,6 +33,6 @@ urlpatterns = [
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     re_path(
         "post-comment-request",
-        views.PostCommentRequest.as_view(),
+        views.PostCommentRequest(),
     ),
 ]
