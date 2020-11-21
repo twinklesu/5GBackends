@@ -55,6 +55,5 @@ class PostComment(models.Model):
     class Meta:
         managed = False
         db_table = 'post_comment'
-        unique_together = (('post_no', 'user_id', 'reg_dt'),)
 
 

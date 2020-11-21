@@ -24,4 +24,4 @@ class RecentPostSerializer(serializers.ModelSerializer):
 class PostCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostComment
-        fields = ('post_no', 'user_id', 'reg_dt', 'comment',)
+        fields = "__all__"
