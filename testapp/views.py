@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Survey, UserInfo
-from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer
+from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer
 from rest_framework import viewsets, permissions
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -19,4 +19,4 @@ class UserInfoViewSet(viewsets.ModelViewSet):
 # order by practice
 class RecentPostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.order_by("-reg_dt")[:5]
-    serializer_class = PostSerializer
+    serializer_class = RecentPostSerializer
