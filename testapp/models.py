@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Post(models.Model):
-    post_no = models.AutoField(primary_key=True)
+    post_no = models.IntegerField(primary_key=True)
     post_title = models.CharField(max_length=128, blank=True, null=True)
     post_content = models.CharField(max_length=1028, blank=True, null=True)
     post_id = models.CharField(max_length=200, blank=True, null=True)
