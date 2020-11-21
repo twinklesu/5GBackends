@@ -26,4 +26,7 @@ class PostCommentViewSet(viewsets.ModelViewSet):
     #post_id = int(request.GET['post_no'])
     #queryset = PostComment.objects.filter(post_no__exact=post_id)
 
+def PostCommentRequest(request):
+    post_id = int(request.GET['post_no'])
+    return PostComment.objects.filter(post_no__exact=post_id)
 
