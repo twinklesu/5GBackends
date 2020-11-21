@@ -21,12 +21,13 @@ class RecentPostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.order_by("-reg_dt")[:5]
     serializer_class = RecentPostSerializer
 
+
+#댓글 작성
 class PostCommentViewSet(viewsets.ModelViewSet):
     serializer_class = PostCommentSerializer
     queryset = PostComment.objects.all()
-    #post_id = int(request.GET['post_no'])
-    #queryset = PostComment.objects.filter(post_no__exact=post_id)
 
+# 댓글 받아오기
 class GetPostCommentAPIView(APIView):
     def get(self, request, post_no):
         serializer = PostCommentSerializer(PostComment.objects.filter(post_no__exact=post_no), many=True)
