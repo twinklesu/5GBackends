@@ -7,7 +7,7 @@ class Post(models.Model):
     post_content = models.CharField(max_length=1028, blank=True, null=True)
     post_id = models.CharField(max_length=200, blank=True, null=True)
     #reg_dt = models.DateTimeField(auto_now_add=True)
-    reg_dt = models.DataTimeField(blank=True, null=True)
+    reg_dt = models.DateTimeField(blank=True, null=True)
     mod_dt = models.DateTimeField(blank=True, null=True)
     post_image = models.TextField(blank=True, null=True)
     post_image_size = models.IntegerField(blank=True, null=True)
