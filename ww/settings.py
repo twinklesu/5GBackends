@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'kek1@hc&(8=*^3n+=y7&qi-qv5(ku21mc9e=u$d@*of(kegv=9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['testdeploy.eba-eqpgap7p.ap-northeast-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['*',
+                 'weather.eba-eqpgap7p.ap-northeast-2.elasticbeanstalk.com']
 
 
 # Application definition
