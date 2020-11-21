@@ -3,6 +3,7 @@ from .models import Post, Survey, UserInfo, PostComment
 from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
@@ -26,9 +27,8 @@ class PostCommentViewSet(viewsets.ModelViewSet):
     #post_id = int(request.GET['post_no'])
     #queryset = PostComment.objects.filter(post_no__exact=post_id)
 
-class GetPostCommentViewSet(viewsets.ModelViewSet):
-    serializer_class = PostCommentSerializer
-    def get(self, request):
-        post_id = int(request.GET['post_no'])
-        return PostComment.objects.filter(post_no__exact=post_id)
+class GetPostCommentAPIView(APIView):
+    def get(self, request, post_id):
+        serializer = PostCommentSerializer(PostComment.objects.filter(post_no__exact=post_id), many=True)
+
 
