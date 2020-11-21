@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Survey, UserInfo
-from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer
+from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
 
