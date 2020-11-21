@@ -18,7 +18,7 @@ class UserInfoSerializer(serializers.ModelSerializer):
         fields = ('user_no', 'user_id', 'user_password','user_name','user_nicknm','user_age','user_sex','user_tel','user_address',)
 
 # test recent 5
-#class RecentPostSerializer(serializers.ModelSerializer):
-#    class Meta:
-#        model = Post
-#        fields = ('post_title', 'reg_dt',)
+class RecentPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('post_title', 'reg_dt',)
