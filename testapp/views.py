@@ -2,12 +2,13 @@ from django.shortcuts import render
 from .models import Post, Survey, UserInfo
 from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer
 from rest_framework import viewsets, permissions
+from rest_framework.decorators import action
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all().order_by("-reg_dt")
 
-    @action(methods=['post'], detail=True, permission_classes=[IsAdminOrIsSelf])
+    @action(methods=['post'])
     def write_post(self):
         serializer_class.save()
 
