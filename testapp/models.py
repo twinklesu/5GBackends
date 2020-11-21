@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Post(models.Model):
-    #post_no = models.IntegerField(primary_key=True)
     post_no = models.AutoField(primary_key=True)
     post_title = models.CharField(max_length=128, blank=True, null=True)
     post_content = models.CharField(max_length=1028, blank=True, null=True)
@@ -44,5 +43,17 @@ class UserInfo(models.Model):
     class Meta:
         managed = False
         db_table = 'user_info'
+
+
+class PostComment(models.Model):
+    post_no = models.IntegerField(primary_key=True)
+    user_id = models.CharField(max_length=200, blank=True, null=True)
+    reg_dt = models.DateTimeField(auto_now_add=True)
+    comment = models.CharField(max_length=1028, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'post_comment'
+        unique_together = (('post_no', 'user_id', 'reg_dt'),)
 
 
