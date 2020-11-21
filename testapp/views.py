@@ -21,5 +21,5 @@ class RecentPostViewSet(viewsets.ModelViewSet):
     serializer_class = RecentPostSerializer
 
 class PostCommentViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = PostComment.objects.all()
     serializer_class = PostCommentSerializer
