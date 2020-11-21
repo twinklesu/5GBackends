@@ -8,7 +8,7 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all().order_by("-reg_dt")
 
-    @action(methods=['post'])
+    @action(methods=['post'], detail=True)
     def write_post(self):
         serializer_class.save()
 
