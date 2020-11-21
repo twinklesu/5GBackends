@@ -6,8 +6,8 @@ from rest_framework.decorators import action
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
-    #queryset = Post.objects.all().order_by("-reg_dt")
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by("-reg_dt")
+    #queryset = Post.objects.all()
 
 
 
