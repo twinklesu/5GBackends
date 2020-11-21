@@ -4,9 +4,15 @@ from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, R
 from rest_framework import viewsets, permissions
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
     serializer_class = PostSerializer
-    #permission_classes = [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+    def get_queryset(self):
+        return self.Post.objects.all().order_by("-reg_dt")
+
+
 
 class SurveyViewSet(viewsets.ModelViewSet):
     queryset = Survey.objects.all()
