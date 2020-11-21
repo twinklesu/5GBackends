@@ -46,7 +46,8 @@ class UserInfo(models.Model):
 
 
 class PostComment(models.Model):
-    post_no = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
+    post_no = models.IntegerField(blank=False, null=False)
     user_id = models.CharField(max_length=200, blank=True, null=True)
     reg_dt = models.DateTimeField(auto_now_add=True)
     comment = models.CharField(max_length=1028, blank=True, null=True)
