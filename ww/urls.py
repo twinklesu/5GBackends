@@ -24,6 +24,7 @@ router.register(r'recent-post-5', views.RecentPostViewSet)
 router.register(r'post', views.PostViewSet)
 router.register(r'survey', views.SurveyViewSet)
 router.register(r'user-info', views.UserInfoViewSet)
+router.register(r'post-comment', views.PostCommentViewSet)
 
 
 urlpatterns = [
