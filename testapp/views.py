@@ -5,12 +5,11 @@ from rest_framework import viewsets, permissions
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
+    queryset = Post.objects.all().order_by("-reg_dt")
 
-    def perform_create(self, serializer):
-        serializer.save()
-
-    def get_queryset(self):
-        return self.Post.objects.all().order_by("-reg_dt")
+    @action(methods=['post'], detail=True, permission_classes=[IsAdminOrIsSelf])
+    def write_post(self):
+        serializer_class.save()
 
 
 
