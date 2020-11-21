@@ -20,7 +20,7 @@ from rest_framework import routers
 from testapp import views
 
 router = routers.DefaultRouter()
-router.register(r'recent-post-5', views.RecentPostViewSet)
+#router.register(r'recent-post-5', views.RecentPostViewSet)
 router.register(r'post', views.PostViewSet)
 router.register(r'survey', views.SurveyViewSet)
 router.register(r'user-info', views.UserInfoViewSet)
@@ -31,7 +31,7 @@ urlpatterns = [
     path('', include(router.urls)),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     re_path(
-        "api/location/?$",
+        "write-post/?$",
         views.PostViewSet.as_view({"post": "create"}),
     ),
 ]

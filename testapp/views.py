@@ -9,10 +9,6 @@ class PostViewSet(viewsets.ModelViewSet):
     #queryset = Post.objects.all().order_by("-reg_dt")
     queryset = Post.objects.all()
 
-#    @action(methods=['post'], detail=True)
-#    def write_post(self):
-#        serializer_class.save()
-
 
 
 class SurveyViewSet(viewsets.ModelViewSet):
@@ -24,6 +20,6 @@ class UserInfoViewSet(viewsets.ModelViewSet):
     serializer_class = UserInfoSerializer
 
 # order by practice
-class RecentPostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.order_by("-reg_dt")[:5]
-    serializer_class = RecentPostSerializer
+#class RecentPostViewSet(viewsets.ModelViewSet):
+#    queryset = Post.objects.order_by("-reg_dt")[:5]
+#    serializer_class = RecentPostSerializer
