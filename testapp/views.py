@@ -22,7 +22,7 @@ class RecentPostViewSet(viewsets.ModelViewSet):
 
 class PostCommentViewSet(viewsets.ModelViewSet):
     serializer_class = PostCommentSerializer
-    queryset = UserInfo.objects.all()
+    queryset = PostComment.objects.all()
     #post_id = int(request.GET['post_no'])
     #queryset = PostComment.objects.filter(post_no__exact=post_id)
 
