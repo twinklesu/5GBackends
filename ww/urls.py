@@ -25,11 +25,11 @@ router.register(r'post', views.PostViewSet)
 router.register(r'survey', views.SurveyViewSet)
 router.register(r'user-info', views.UserInfoViewSet)
 router.register(r'post-comment', views.PostCommentViewSet)
+router.register(r'get-post-comment/<int:post_no>', views.GetPostCommentViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('get-post-comment/<post_no>', views.PostCommentRequest, name='postCommentRequest'),
 ]

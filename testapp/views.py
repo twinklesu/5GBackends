@@ -26,6 +26,9 @@ class PostCommentViewSet(viewsets.ModelViewSet):
     #post_id = int(request.GET['post_no'])
     #queryset = PostComment.objects.filter(post_no__exact=post_id)
 
-def PostCommentRequest(request, post_id):
-    return PostComment.objects.filter(post_no__exact=post_id)
+class GetPostCommentViewSet(viewsets.ModelViewSet):
+    serializer_class = PostCommentSerializer
+    def get(self, request):
+        post_id = int(request.GET['post_no'])
+        return PostComment.objects.filter(post_no__exact=post_id)
 
