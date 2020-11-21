@@ -30,5 +30,6 @@ class PostCommentViewSet(viewsets.ModelViewSet):
 class GetPostCommentAPIView(APIView):
     def get(self, request, post_id):
         serializer = PostCommentSerializer(PostComment.objects.filter(post_no__exact=post_id), many=True)
+        return Response(serializer.data)
 
 
