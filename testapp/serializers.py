@@ -4,7 +4,7 @@ from .models import Post, Survey, UserInfo
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('post_title', 'post_content', 'post_id','reg_dt', 'post_image',)
+        fields = ('post_no','post_title', 'post_content', 'post_id','reg_dt', 'post_image',)
 
 class SurveySerializer(serializers.ModelSerializer):
     class Meta:
