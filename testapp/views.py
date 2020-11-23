@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Survey, UserInfo, PostComment
-from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer
+from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -36,6 +36,6 @@ class GetPostCommentAPIView(APIView):
 # id 값으로 pw 리턴해서 프론트에서 매칭해서 맞는지 확인
 class LoginAPIView(APIView):
     def get(self, request, user_id):
-        serializer = UserInfoSerializer(UserInfo.objects.filter(user_id = user_id).values(user_password), many=True)
+        serializer = PasswordSerializer(UserInfo.objects.filter(user_id = user_id), many=True)
         return Response(serializer.data)
 

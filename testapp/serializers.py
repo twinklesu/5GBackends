@@ -24,4 +24,9 @@ class RecentPostSerializer(serializers.ModelSerializer):
 class PostCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostComment
-        fields = ('post_no', 'user_id','reg_dt','comment')
+        fields = ('post_no', 'user_id','reg_dt','comment',)
+
+class PasswordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserInfo
+        fields = ('user_password',)
