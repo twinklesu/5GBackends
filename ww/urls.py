@@ -32,4 +32,5 @@ urlpatterns = [
     path('', include(router.urls)),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('get-post-comment/<post_no>/', views.GetPostCommentAPIView.as_view()),
+    path('get-pw-by-id/<user_id>/', views.LoginAPIView.as_view()),
 ]

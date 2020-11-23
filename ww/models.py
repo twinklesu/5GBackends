@@ -47,6 +47,7 @@ class Post(models.Model):
     post_image = models.TextField(blank=True, null=True)
     post_image_size = models.IntegerField(blank=True, null=True)
 
+
     class Meta:
         managed = False
         db_table = 'post'

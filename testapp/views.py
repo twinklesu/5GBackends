@@ -33,4 +33,9 @@ class GetPostCommentAPIView(APIView):
         serializer = PostCommentSerializer(PostComment.objects.filter(post_no__exact=post_no), many=True)
         return Response(serializer.data)
 
+# id 값으로 pw 리턴해서 프론트에서 매칭해서 맞는지 확인
+class LoginAPIView(APIView):
+    def get(self, request, user_id):
+        serializer = UserInfoSerializer(UserInfo.objects.get(user_id__exaxt = user_id).values(user_passward), many=False)
+        return Response(serializer.data)
 
