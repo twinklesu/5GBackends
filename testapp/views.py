@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Survey, UserInfo, PostComment
 from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer, UserNicknameSerializer
-from .serializers import IdValidationSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -51,6 +50,14 @@ class ValidateIdAPIView(APIView):
     def get(self, request, user_id):
         if UserInfo.objects.filter(user_id = user_id).exists():
             return Response(data={'message':False}) #이 id 이미 있다
+        else:
+            return Response(data={'message':True})
+
+# 등록되어 있는 id 이면 False 리턴
+class ValidateNicknameAPIView(APIView):
+    def get(self, request, user_nicknm):
+        if UserInfo.objects.filter(user_nicknm = user_nm).exists():
+            return Response(data={'message':False}) #이 닉네임 이미 있다
         else:
             return Response(data={'message':True})
 

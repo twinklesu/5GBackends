@@ -35,4 +35,5 @@ urlpatterns = [
     path('get-pw-by-id/<user_id>/', views.LoginAPIView.as_view()),
     path('get-nickname-by-id/<user_id>/', views.GetNicknameAPIView.as_view()),
     path('validate-id/<user_id>/', views.ValidateIdAPIView.as_view()),
+    path('validate-nicknm/<user_nicknm>/', views.ValidateNicknameAPIView.as_view()),
 ]
