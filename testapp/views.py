@@ -49,6 +49,9 @@ class GetNicknameAPIView(APIView):
 # 등록되어 있는 id 이면 False 리턴
 class ValidateIdAPIView(APIView):
     def get(self, request, user_id):
-        serializer = IdValidationSerializer(UserInfo.objects.filter(user_id = user_id).exists(), many=True)
-        return Response(serializer.data)
+        if UserInfo.objects.filter(user_id = user_id).exists():
+            return False #이 id 이미 있다
+        else:
+            return True
+
 
