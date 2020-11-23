@@ -30,3 +30,8 @@ class PasswordSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInfo
         fields = ('user_password',)
+
+class UserNicknameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserInfo
+        fields = ('user_nicknm',)

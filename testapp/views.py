@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Post, Survey, UserInfo, PostComment
-from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer
+from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer,
+UserNicknameSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -37,5 +38,11 @@ class GetPostCommentAPIView(APIView):
 class LoginAPIView(APIView):
     def get(self, request, user_id):
         serializer = PasswordSerializer(UserInfo.objects.filter(user_id = user_id), many=True)
+        return Response(serializer.data)
+
+# 게시글에서 id 검색으로 닉네임 리턴
+class GetNicknameAPIView(APIView):
+    def get(self, request, user_id):
+        serializer = UserNicknameSerializer(UserInfo.objects.filter(user_id = user_id), many=True)
         return Response(serializer.data)
 
