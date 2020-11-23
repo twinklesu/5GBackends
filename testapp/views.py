@@ -21,6 +21,10 @@ class RecentPostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.order_by("-reg_dt")[:5]
     serializer_class = RecentPostSerializer
 
+# 회원가입
+class JoinViewSet(viewsets.ModelViewSet):
+    queryset = UserInfo.objects.all()
+    serializer_class = UserInfoSerializer
 
 #댓글 작성
 class PostCommentViewSet(viewsets.ModelViewSet):
@@ -60,5 +64,7 @@ class ValidateNicknameAPIView(APIView):
             return Response(data={'message':False}) #이 닉네임 이미 있다
         else:
             return Response(data={'message':True})
+
+
 
 
