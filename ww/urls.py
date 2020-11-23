@@ -34,4 +34,5 @@ urlpatterns = [
     path('get-post-comment/<post_no>/', views.GetPostCommentAPIView.as_view()),
     path('get-pw-by-id/<user_id>/', views.LoginAPIView.as_view()),
     path('get-nickname-by-id/<user_id>/', views.GetNicknameAPIView.as_view()),
+    path('validate-id/<user_id>/', views.ValidateIdAPIView.as_view()),
 ]

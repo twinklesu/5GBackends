@@ -35,3 +35,8 @@ class UserNicknameSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInfo
         fields = ('user_nicknm',)
+
+class IdValidationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserInfo
+        fields = ('user_id',)
