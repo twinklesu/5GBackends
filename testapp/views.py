@@ -50,8 +50,8 @@ class GetNicknameAPIView(APIView):
 class ValidateIdAPIView(APIView):
     def get(self, request, user_id):
         if UserInfo.objects.filter(user_id = user_id).exists():
-            return False #이 id 이미 있다
+            return Response(data={'message':False}) #이 id 이미 있다
         else:
-            return True
+            return Response(data={'message':True})
 
 
