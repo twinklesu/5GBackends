@@ -56,7 +56,7 @@ class ValidateIdAPIView(APIView):
 # 등록되어 있는 id 이면 False 리턴
 class ValidateNicknameAPIView(APIView):
     def get(self, request, user_nicknm):
-        if UserInfo.objects.filter(user_nicknm = user_nm).exists():
+        if UserInfo.objects.filter(user_nicknm = user_nicknm).exists():
             return Response(data={'message':False}) #이 닉네임 이미 있다
         else:
             return Response(data={'message':True})

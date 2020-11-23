@@ -35,3 +35,4 @@ class UserNicknameSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInfo
         fields = ('user_nicknm',)
+
