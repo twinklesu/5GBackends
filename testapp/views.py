@@ -83,7 +83,7 @@ class OotdLikesAPIView(APIView):
 
     def put(self, request, user_id, format=None):
         _user_id = self.get_object(user_id)
-        serializer = UserLikesSerializer(_user_id, data = request.data)
+        serializer = UserLikesSerializer(_user_id, data = request.user.data)
         if serializer.is_valid():
             serializer.save()
         return Response(serializer.data)
@@ -91,12 +91,12 @@ class OotdLikesAPIView(APIView):
 #댓글 작성
 class OotdLikesViewSet(viewsets.ModelViewSet):
     def update(self, request, user_id=None):
-        u = request.user
-        queryset = YourModel.objects.filter(user=u, user_id=user_id)
+        user_id = request.user.user_id
+        queryset = UserInfo.objects.filter(user_id=user_id)
         if not queryset:
             return
         else:
-            serializer = YourModelSerializer(queryset)
+            serializer = UserLikesSerializer(queryset)
             serializer.save()
             return Response(serializer.data)
 
