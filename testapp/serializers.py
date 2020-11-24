@@ -39,5 +39,5 @@ class UserNicknameSerializer(serializers.ModelSerializer):
 class UserLikesSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInfo
-        fields = ('likes',)
+        fields = ('user_id','likes',)
 
