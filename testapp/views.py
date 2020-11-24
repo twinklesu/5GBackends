@@ -87,3 +87,10 @@ class OotdLikesAPIView(APIView):
             serializer.save()
         return Response(serializer.data)
 
+#댓글 작성
+class OotdLikesViewSet(viewsets.ModelViewSet):
+    serializer_class = UserLikesSerializer
+    queryset = UserInfo.objects.get(user_id = user_id)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
