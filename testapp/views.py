@@ -5,6 +5,8 @@ from .serializers import UserLikesSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.http import Http404
+
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
@@ -75,6 +77,8 @@ class OotdLikesAPIView(APIView):
     def get_object(self, user_id):
         try:
             return UserInfo.objects.get(user_id = user_id)
+        except UserInfo.DoesNotExist:
+            raise Http404
 
     def put(self, request, user_id, format=None):
         _user_id = self.get_object(user_id)
