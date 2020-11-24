@@ -91,6 +91,3 @@ class OotdLikesAPIView(APIView):
 class OotdLikesViewSet(viewsets.ModelViewSet):
     serializer_class = UserLikesSerializer
     queryset = UserInfo.objects.all()
-
-    def put(self, request, *args, **kwargs):
-        return self.update(request, *args, **kwargs)
