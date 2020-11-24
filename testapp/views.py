@@ -72,8 +72,9 @@ class OotdLikesAPIView(APIView):
         serializer = UserLikesSerializer(UserInfo.objects.filter(user_id = user_id), many=True)
         return Response(serializer.data)
 
-    def post(self, request, user_id):
+    def put(self, request, user_id):
         serializer = UserLikesSerializer(UserInfo.objects.filter(user_id = user_id), many=True)
+        return Response(serializer.data)
 
 
 
