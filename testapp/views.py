@@ -67,9 +67,13 @@ class ValidateNicknameAPIView(APIView):
             return Response(data={'message':True})
 
 # ootd 게시글에서 좋아요 누르면 user likes +1
-class OotdLikesViewSet(viewsets.ModelViewSet):
-    serializer_class = UserLikesSerializer
-    queryset = UserInfo.objects.filter(user_id = user_id)
+class OotdLikesAPIView(APIView):
+    def get(self, request, user_id):
+        serializer = UserLikesSerializer(UserInfo.objects.filter(user_id = user_id), many=True)
+        return Response(serializer.data)
+
+    def post(self, request, user_id):
+        serializer = UserLikesSerializer(UserInfo.objects.filter(user_id = user_id), many=True)
 
 
 

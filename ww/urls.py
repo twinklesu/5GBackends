@@ -26,7 +26,6 @@ router.register(r'survey', views.SurveyViewSet)
 router.register(r'user-info', views.UserInfoViewSet)
 router.register(r'post-comment', views.PostCommentViewSet)
 router.register(r'join', views.JoinViewSet)
-router.register(r'likes/<user_id>/', views.OotdLikesViewSet)
 
 
 urlpatterns = [
@@ -38,4 +37,5 @@ urlpatterns = [
     path('get-nickname-by-id/<user_id>/', views.GetNicknameAPIView.as_view()),
     path('validate-id/<user_id>/', views.ValidateIdAPIView.as_view()),
     path('validate-nicknm/<user_nicknm>/', views.ValidateNicknameAPIView.as_view()),
+    path('likes/<user_id>/', views.OotdLikesAPIView.as_view()),
 ]
