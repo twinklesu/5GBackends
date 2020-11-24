@@ -90,4 +90,4 @@ class OotdLikesAPIView(APIView):
 #댓글 작성
 class OotdLikesViewSet(viewsets.ModelViewSet):
     serializer_class = UserLikesSerializer
-    queryset = UserInfo.objects.get(user_id = user_id)
+    queryset = UserInfo.objects.get(user_id = request.data)
