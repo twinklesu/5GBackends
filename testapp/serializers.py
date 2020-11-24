@@ -36,3 +36,8 @@ class UserNicknameSerializer(serializers.ModelSerializer):
         model = UserInfo
         fields = ('user_nicknm',)
 
+class UserLikesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserInfo
+        fields = ('likes',)
+

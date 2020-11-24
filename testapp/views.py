@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Post, Survey, UserInfo, PostComment
 from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer, UserNicknameSerializer
+from .serializers import UserLikesSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -65,6 +66,10 @@ class ValidateNicknameAPIView(APIView):
         else:
             return Response(data={'message':True})
 
+# ootd 게시글에서 좋아요 누르면 user likes +1
+class OotdLikesViewSet(viewsets.ModelViewSet):
+    serializer_class = UserLikesSerializer
+    queryset = UserInfo.objects.filter(user_id = user_id)
 
 
 

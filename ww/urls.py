@@ -26,6 +26,7 @@ router.register(r'survey', views.SurveyViewSet)
 router.register(r'user-info', views.UserInfoViewSet)
 router.register(r'post-comment', views.PostCommentViewSet)
 router.register(r'join', views.JoinViewSet)
+router.register(r'likes', views.OotdLikesViewSet)
 
 
 urlpatterns = [

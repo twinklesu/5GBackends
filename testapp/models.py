@@ -39,6 +39,7 @@ class UserInfo(models.Model):
     user_sex = models.CharField(max_length=45, blank=True, null=True)
     user_tel = models.CharField(max_length=45, blank=True, null=True)
     user_address = models.CharField(max_length=128, blank=True, null=True)
+    likes = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
