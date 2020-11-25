@@ -1,13 +1,11 @@
 from django.shortcuts import render
-from .models import Post, Survey, UserInfo, PostComment
+from .models import Post, Survey, UserInfo, PostComment, SurveyF, SurveyW
 from .serializers import PostSerializer, SurveySerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer, UserNicknameSerializer
-from .serializers import UserLikesSerializer, UserInfoSerializer
+from .serializers import UserLikesSerializer, UserInfoSerializer, SurveyFSerializer, SurveyWSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import Http404, HttpResponse
-
-
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
@@ -97,3 +95,12 @@ class OotdLikesViewSet(viewsets.ModelViewSet):
             serializer.save()
             return Response(serializer.data)
 
+# 날씨 설문
+class WeatherSurveyViewSet(viewsets.ModelViewSet):
+    serializer_class = SurveyWSerializer
+    queryset = SurveyW.objects.all()
+
+# 패션설문
+class FashionSurveyViewSet(viewsets.ModelViewSet):
+    serializer_class = SurveyWSerializer
+    queryset = SurveyW.objects.all()

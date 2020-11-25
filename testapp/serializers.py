@@ -1,15 +1,10 @@
 from rest_framework import serializers
-from .models import Post, Survey, UserInfo, PostComment
+from .models import Post, UserInfo, PostComment, SurveyF, SurveyW
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ('post_no','post_title', 'post_content', 'post_id','reg_dt', 'post_image',)
-
-class SurveySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Survey
-        fields = ('user_id', 'reg_dt', 'location','weather','fashion',)
 
 class UserInfoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,4 +36,13 @@ class UserLikesSerializer(serializers.ModelSerializer):
         model = UserInfo
         fields = ('user_id','likes',)
 
+class SurveyFSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SurveyF
+        fields = ('user_id', 'reg_dt', 'fashion')
+
+class SurveyWSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SurveyW
+        fields = ('user_id', 'reg_dt', 'weather')
 

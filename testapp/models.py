@@ -56,3 +56,25 @@ class PostComment(models.Model):
     class Meta:
         managed = False
         db_table = 'post_comment'
+
+class SurveyF(models.Model):
+    id = models.AutoField(primary_key=True)
+    user_id = models.CharField(max_length=200, blank=True, null=True)
+    reg_dt = models.DateTimeField(auto_now_add=True)
+    fashion = models.CharField(max_length=256, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'survey_f'
+
+class SurveyW(models.Model):
+    id = models.AutoField(primary_key=True)
+    user_id = models.CharField(max_length=200, blank=True, null=True)
+    reg_dt = models.DateTimeField(auto_now_add=True)
+    weather = models.CharField(max_length=256, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'survey_w'
+
+

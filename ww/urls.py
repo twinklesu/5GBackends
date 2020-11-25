@@ -25,6 +25,10 @@ router.register(r'post', views.PostViewSet)
 router.register(r'survey', views.SurveyViewSet)
 router.register(r'post-comment', views.PostCommentViewSet)
 router.register(r'join', views.JoinViewSet)
+router.register(r'fashion-survey', views.FashionSurveyViewSet)
+router.register(r'weather-survey', views.WeatherSurveyViewSet)
+
+
 router.register(r'ootd-likes/<user_id>/', views.OotdLikesViewSet, basename='user-likes')
 
 
