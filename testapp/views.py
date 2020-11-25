@@ -115,3 +115,15 @@ class WeatherResultAPIView(APIView):
             connection.rollback()
         return Response(data={'weather': weather})
 
+class FashionResultAPIView(APIView):
+    def get(self, request):
+        try:
+            cursor = connection.cursor()
+            strSql = "select fashion from survey_f where reg_dt < DATE_SUB(NOW(), INTERVAL 6 HOUR) group by fashion order by count(*) desc limit 4;"
+            result = cursor.execute(strSql)
+            weather = cursor.fetchall()
+            connection.commit()
+            connection.close()
+        except:
+            connection.rollback()
+        return Response(data={'fashion': weather})
