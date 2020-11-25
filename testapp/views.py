@@ -6,6 +6,7 @@ from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import Http404, HttpResponse
+from django.db import connection
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
@@ -100,3 +101,17 @@ class WeatherSurveyViewSet(viewsets.ModelViewSet):
 class FashionSurveyViewSet(viewsets.ModelViewSet):
     serializer_class = SurveyFSerializer
     queryset = SurveyF.objects.all()
+
+class WeatherResultAPIView(APIView):
+    def get(self, request):
+        try:
+            cursor = connection.cursor()
+            strSql = "select weather from survey_w"
+            result = cursor.execute(strSql)
+            weather = cursor.fetchall()
+            connection.commit()
+            connection.close()
+        except:
+            connection.rollback()
+        return Response(data={'weather': weather})
+
