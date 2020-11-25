@@ -28,7 +28,7 @@ router.register(r'fashion-survey', views.FashionSurveyViewSet)
 router.register(r'weather-survey', views.WeatherSurveyViewSet)
 
 
-router.register(r'ootd-likes/<user_id>/', views.OotdLikesViewSet, basename='user-likes')
+#router.register(r'ootd-likes/<user_id>/', views.OotdLikesViewSet, basename='user-likes')
 
 
 urlpatterns = [

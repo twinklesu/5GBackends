@@ -98,5 +98,5 @@ class WeatherSurveyViewSet(viewsets.ModelViewSet):
 
 # 패션설문
 class FashionSurveyViewSet(viewsets.ModelViewSet):
-    serializer_class = SurveyWSerializer
-    queryset = SurveyW.objects.all()
+    serializer_class = SurveyFSerializer
+    queryset = SurveyF.objects.all()
