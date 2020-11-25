@@ -126,4 +126,4 @@ class FashionResultAPIView(APIView):
             connection.close()
         except:
             connection.rollback()
-        return Response(data={'fashion': weather})
+        return Response(data={'fashion': fashion})
