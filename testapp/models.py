@@ -30,7 +30,7 @@ class Survey(models.Model):
 
 
 class UserInfo(models.Model):
-    user_no = models.IntegerField(primary_key=True)
+    user_no = models.AutoField(primary_key=True)
     user_id = models.CharField(max_length=200, blank=True, null=True)
     user_password = models.CharField(max_length=45, blank=True, null=True)
     user_name = models.CharField(max_length=45, blank=True, null=True)
