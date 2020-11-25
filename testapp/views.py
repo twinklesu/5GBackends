@@ -27,8 +27,9 @@ class RecentPostViewSet(viewsets.ModelViewSet):
 
 # 회원가입
 class JoinViewSet(viewsets.ModelViewSet):
-    queryset = UserInfo.objects.all()
     serializer_class = UserInfoSerializer
+    queryset = UserInfo.objects.all()
+
 
 #댓글 작성
 class PostCommentViewSet(viewsets.ModelViewSet):
