@@ -106,7 +106,7 @@ class WeatherResultAPIView(APIView):
     def get(self, request):
         try:
             cursor = connection.cursor()
-            strSql = "select weather from survey_w"
+            strSql = "select weather from survey_w where reg_dt < DATE_SUB(NOW(), INTERVAL 6 HOUR) group by weather order by count(*) desc limit 2;"
             result = cursor.execute(strSql)
             weather = cursor.fetchall()
             connection.commit()
