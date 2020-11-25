@@ -106,7 +106,7 @@ class WeatherResultAPIView(APIView):
     def get(self, request):
         try:
             cursor = connection.cursor()
-            strSql = "select * from survey_w where time_to_sec(timediff(now(), reg_dt)) < 21600 group by weather order by count(*) desc limit 2;"
+            strSql = "select weather from survey_w where time_to_sec(timediff(now(), reg_dt)) < 21600 group by fashion order by count(*) desc limit 2;"
             result = cursor.execute(strSql)
             weather = cursor.fetchall()
             connection.commit()
@@ -119,7 +119,7 @@ class FashionResultAPIView(APIView):
     def get(self, request):
         try:
             cursor = connection.cursor()
-            strSql = "select * from survey_f where time_to_sec(timediff(now(), reg_dt)) < 21600 group by fashion order by count(*) desc limit 4;"
+            strSql = "select fashion from survey_f where time_to_sec(timediff(now(), reg_dt)) < 21600 group by fashion order by count(*) desc limit 4;"
             result = cursor.execute(strSql)
             fashion = cursor.fetchall()
             connection.commit()
