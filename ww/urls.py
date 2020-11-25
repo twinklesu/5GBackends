@@ -41,7 +41,7 @@ urlpatterns = [
     path('validate-id/<user_id>/', views.ValidateIdAPIView.as_view()),
     path('validate-nicknm/<user_nicknm>/', views.ValidateNicknameAPIView.as_view()),
     #path('likes/<user_id>/', views.OotdLikesAPIView.as_view()),
-    path('weather-result', views.WeatherResultAPIView.as_view()),
-    path('fashion-result', views.FashionResultAPIView.as_view()),
+    path('weather-result/', views.WeatherResultAPIView.as_view()),
+    path('fashion-result/', views.FashionResultAPIView.as_view()),
 
 ]
