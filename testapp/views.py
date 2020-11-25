@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post, Survey, UserInfo, PostComment
-from .serializers import PostSerializer, SurveySerializer, UserInfoSerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer, UserNicknameSerializer
-from .serializers import UserLikesSerializer
+from .serializers import PostSerializer, SurveySerializer, RecentPostSerializer, PostCommentSerializer, PasswordSerializer, UserNicknameSerializer
+from .serializers import UserLikesSerializer, UserInfoSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -16,10 +16,6 @@ class PostViewSet(viewsets.ModelViewSet):
 class SurveyViewSet(viewsets.ModelViewSet):
     queryset = Survey.objects.all()
     serializer_class = SurveySerializer
-
-class UserInfoViewSet(viewsets.ModelViewSet):
-    queryset = UserInfo.objects.all()
-    serializer_class = UserInfoSerializer
 
 class RecentPostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.order_by("-reg_dt")[:5]

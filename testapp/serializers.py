@@ -14,7 +14,7 @@ class SurveySerializer(serializers.ModelSerializer):
 class UserInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInfo
-        fields = ('user_id', 'user_password','user_name','user_sex','user_tel','user_address',)
+        fields = "__all__"
 
 class RecentPostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -40,4 +40,5 @@ class UserLikesSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInfo
         fields = ('user_id','likes',)
+
 
