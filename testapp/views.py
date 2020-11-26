@@ -10,7 +10,7 @@ from django.db import connection
 
 class PostViewSet(APIView):
     def get(self, request):
-        serializer = PostSerializer(Post.objects.all().order_by("-reg_dt"))
+        serializer = PostSerializer(Post.objects.all().order_by("-reg_dt"), many=True)
         return Response(serializer.data)
 
 class RecentPostViewSet(viewsets.ModelViewSet):
