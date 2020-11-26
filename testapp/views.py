@@ -10,7 +10,9 @@ from django.db import connection
 
 class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
-    queryset = Post.objects.all().order_by("-reg_dt")
+    def get(self, request):
+        queryset = Post.objects.all().order_by("-reg_dt")
+        return Response(data={'result': queryset})
 
 class RecentPostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.order_by("-reg_dt")[:5]
