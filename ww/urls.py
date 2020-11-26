@@ -21,7 +21,7 @@ from testapp import views
 
 router = routers.DefaultRouter()
 router.register(r'recent-post-5', views.RecentPostViewSet)
-router.register(r'post', views.PostViewSet)
+#router.register(r'post', views.PostViewSet)
 router.register(r'post-comment', views.PostCommentViewSet)
 router.register(r'join', views.JoinViewSet)
 router.register(r'fashion-survey', views.FashionSurveyViewSet)
@@ -43,5 +43,5 @@ urlpatterns = [
     #path('likes/<user_id>/', views.OotdLikesAPIView.as_view()),
     path('weather-result/', views.WeatherResultAPIView.as_view()),
     path('fashion-result/', views.FashionResultAPIView.as_view()),
-
+    path('post/', views.PostViewSet.as_view()),
 ]
