@@ -11,7 +11,7 @@ from django.db import connection
 class PostViewSet(APIView):
     def get(self, request):
         serializer = PostSerializer(Post.objects.all().order_by("-reg_dt"))
-        return Response(data = serializer.data)
+        return Response(serializer.data)
 
 class RecentPostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.order_by("-reg_dt")[:5]
