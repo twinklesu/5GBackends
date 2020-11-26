@@ -19,7 +19,7 @@ class RecentPostViewSet(viewsets.ModelViewSet):
 
 class WritePostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
-    serializer_class = RecentPostSerializer
+    serializer_class = PostSerializer
 
 # 회원가입
 class JoinViewSet(viewsets.ModelViewSet):
