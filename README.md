@@ -1,6 +1,6 @@
 # 5Gbackends
 ## 한국IT경영학회 KUSITMS 22기 5조
-**WearWeather** 모바일 애플리케이션 REST 서버
+**WearWeather** 모바일 애플리케이션 REST 서버 <br>
 Mobile application REST server
 
 ---
